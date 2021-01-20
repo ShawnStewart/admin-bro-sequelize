@@ -4,9 +4,10 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "start": "tsc && node dist/index.js",
+    "start": "node dist/index.js",
     "server": "nodemon --watch 'src/**/*.ts' --exec 'ts-node' src/index.ts",
-    "lint": "eslint ."
+    "lint": "eslint .",
+    "build": "tsc && yarn start"
   },
   "dependencies": {
     "@admin-bro/koa": "^1.1.1",
