@@ -11,6 +11,7 @@ app.use(router.routes()).use(router.allowedMethods());
 
 const authenticateDB = async () => {
     console.log('\n=== Testing db connection ===');
+    console.log(db.config);
     await db.authenticate();
     console.log('=== Successfully connected to Postgres ===');
 };
