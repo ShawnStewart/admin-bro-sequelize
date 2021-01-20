@@ -22,7 +22,7 @@ const syncDB = async () => {
     console.log('=== Sync successful ===');
 };
 
-app.listen(3000).on('listening', async () => {
+app.listen(process.env.PORT || 3000).on('listening', async () => {
     console.log('=== Server listening on port 3000 ===');
 
     try {
