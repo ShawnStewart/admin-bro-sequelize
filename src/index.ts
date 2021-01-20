@@ -17,7 +17,7 @@ const authenticateDB = async () => {
 
 const syncDB = async () => {
     console.log('\n=== Syncs are used to update tables to match models ===');
-    await db.sync({ force: true });
+    await db.sync();
     console.log('=== Sync successful ===');
 };
 
@@ -26,7 +26,7 @@ app.listen(3000).on('listening', async () => {
 
     try {
         await authenticateDB();
-        // await syncDB(); // hard resets db
+        await syncDB();
     } catch (error) {
         console.log('\nFailed to authenticate or sync\n', error);
     }

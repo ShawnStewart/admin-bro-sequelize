@@ -6,13 +6,11 @@ import Post from './Post';
 export { default as User } from './User';
 export { default as Post } from './Post';
 
-export const db = new Sequelize({
-    port: 5432,
-    host: 'localhost',
+const localDB = 'postgres://postgres@localhost:5432/admin_bro';
+const dbUrl = process.env.NODE_ENV === 'production' ? process.env.DATABASE_URL || '' : localDB;
+
+export const db = new Sequelize(dbUrl, {
     dialect: 'postgres',
-    username: 'postgres',
-    password: 'postgres',
-    database: 'admin_bro',
     pool: {
         min: 0,
         max: 5,
